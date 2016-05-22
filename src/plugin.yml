@@ -1,0 +1,73 @@
+name: LevelTree
+description: Designed to hook and override McMMO's Levelling System.
+main: com.domsplace.LevelTree.LevelTreePlugin
+authors: [Dominic, Douglas]
+website: http://domsplace.com/
+version: '1.00'
+load: POSTWORLD
+softdepend: [MagicSpells]
+commands:
+   LevelTree:
+      description: Reloads the configuration.
+      aliases: [lt]
+      usage: /<command> [reload | save]
+      permission: LevelTree.info
+   SkillTree:
+      description: Opens the skill tree.
+      aliases: [st]
+      usage: /<command>
+      permission: LevelTree.skilltree
+   AddMana:
+      description: Adds to a players max mana level.
+      usage: /<command> [player] [amount]
+      permission: LevelTree.addmana
+   AddEXP:
+      description: Adds to the SkillXP of a player.
+      usage: /<command> [player] [amount]{L}
+      permission: LevelTree.addexp
+   AddMaxHealth:
+      description: Adds to the Maximum Health of a player.
+      usage: /<command> [player] [amount]
+      permission: LevelTree.addmaxhealth
+   CheckEXP:
+      description: Check your EXP levels.
+      aliases: [exp, xp, checkxp]
+      usage: /<command>
+      permission: LevelTree.checkexp
+   Skills:
+      description: Check your skills that you've purchased.
+      aliases: [checkskills, myskills]
+      usage: /<command>
+      permission: LevelTree.skills
+permissions:
+   LevelTree.*:
+     description: Gives access to all LevelTree permissions.
+     children:
+       LevelTree.reload: true
+       LevelTree.info: true
+       LevelTree.skilltree: true
+       LevelTree.addmana: true
+       LevelTree.checkexp: true
+       LevelTree.checkexp.others: true
+       LevelTree.skills: true
+       LevelTree.addmaxhealth: true
+   LevelTree.reload:
+     description: Allows access to reload the config.
+   LevelTree.save:
+     description: Allows access to save the config.
+   LevelTree.info:
+     description: Allows access to the /LevelTree command.
+   LevelTree.skilltree:
+     description: Allows access to the /SkillTree command.
+   LevelTree.addmana:
+     description: Allows access to the /AddMana command.
+   LevelTree.addexp:
+     description: Allows access to the /AddEXP command.
+   LevelTree.checkexp:
+     description: Allows access to the /CheckEXP command.
+   LevelTree.checkexp.others:
+     description: Allows access to check other players EXP levels.
+   LevelTree.skills:
+     description: Allows access to the /Skills command.
+   LevelTree.addmaxhealth:
+     description: Allows access to the /AddMaxHealth command.
